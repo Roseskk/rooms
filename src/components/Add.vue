@@ -1,14 +1,20 @@
 <template>
   <form v-if="isTrue" @submit.prevent="onMerge">
-    <input type="text" placeholder="cpu" v-model="tittle">
-    <input type="text" placeholder="video" v-model="Video">
-    <input type="text" placeholder="RAM" v-model="RAM">
-    <input type="text" placeholder="num" v-model="num">
-    <button v-on:click="Click" type="submit">Click</button>
+
+    <span>Процессор : <input type="text" placeholder="cpu" v-model="tittle"> </span>
+      <span>Видеокарта : <input type="text" placeholder="video" v-model="Video"></span>
+      <span>RAM : <input type="text" placeholder="RAM" v-model="RAM"></span>
+      <span>Номер аудитории : <input type="text" placeholder="num" v-model="num"></span>
+
+    <button type="submit">Send</button>
     <h2 v-if="iactive">Добавлено</h2>
-      <span>{{this.tittle}}</span>
-      <span>{{this.Video}}</span>
-      <span>{{this.RAM}}</span>
+    <table class="set">
+      <tr>
+        <td>{{this.tittle}}</td>
+        <td>{{this.Video}}</td>
+        <td>{{this.RAM}}</td>
+      </tr>
+    </table>
   </form>
 </template>
 
@@ -37,22 +43,17 @@ name: "Add",
         }
         this.$emit('addMerge',newMerge)
     },
-    Click(){
-      if(!this.iactive) {
-        this.iactive = true
-      }
-      if(this.isTrue){
-        this.isTrue = false
-      }
-      else {this.isTrue = true}
-    }
   }
 }
 </script>
 
 <style scoped>
+.set {
+  margin-top: 10px;
+}
 form {
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 input {
