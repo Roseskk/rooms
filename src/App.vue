@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <Cards
-          v-bind:audiences="audiences"
-          v-bind:room="mainRoom"
-          @newRoom="newRoom"
-          @deleteMe="deleteMe"
-      />
-      <div class="Adder">
-        <button class="add-btn" v-if="completed" v-on:click="setNew">{{tittleBtn}}</button>
-      </div>
-        <Add v-if="active"
-             v-bind:tableRoom="main"
-             v-bind:act="active"
-             @addMerge="newMerge"
+      <button v-on:click="setOpen" class="add-btn">Аудитории</button>
+      <div v-if="drag">
+        <Cards
+            v-bind:audiences="audiences"
+            v-bind:room="mainRoom"
+            @newRoom="newRoom"
+            @deleteMe="deleteMe"
         />
+        <div class="Adder">
+          <button class="add-btn" v-if="completed" v-on:click="setNew">{{tittleBtn}}</button>
+        </div>
+          <Add v-if="active"
+               v-bind:tableRoom="main"
+               v-bind:act="active"
+               @addMerge="newMerge"
+          />
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +33,7 @@ export default {
       tittleBtn:'Добавить',
       add:'Добавить',
       hide:'Скрыть',
+      drag: false,
       completed:false,
       isOn:true,
       active:false,
@@ -95,6 +99,13 @@ export default {
       // this.mainRoom.push(some)
       this.Rooms.push(some)
       console.log(this.Rooms)
+    },
+    setOpen() {
+      if(!this.drag) {
+        this.drag = true;
+      }else if (this.drag) {
+        this.drag = false
+      }
     }
   }
 }

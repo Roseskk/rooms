@@ -2,16 +2,16 @@
   <form v-if="isTrue" @submit.prevent="onMerge">
     <div class="form-container">
       <div class="form-item">
-        <span class="form-name">Процессор :</span> <input  required class="form-input" type="text" placeholder="cpu" v-model="tittle">
+        <label class="form-name">Процессор :</label> <input  required class="form-input" type="text" placeholder="cpu" v-model="tittle">
       </div>
       <div class="form-item">
-        <span class="form-name">Видеокарта :</span> <input  required class="form-input" type="text" placeholder="video" v-model="Video">
+        <label class="form-name">Видеокарта :</label> <input  required class="form-input" type="text" placeholder="video" v-model="Video">
       </div>
       <div class="form-item">
-        <span class="form-name">RAM :</span> <input  required class="form-input" type="text" placeholder="RAM" v-model="RAM">
+        <label class="form-name">RAM :</label> <input  required class="form-input" type="text" placeholder="RAM" v-model="RAM">
       </div>
       <div class="form-item">
-        <span class="form-name">Номер аудитории : </span><input  required class="form-input" type="text" placeholder="num" v-model="num">
+        <label class="form-name">Номер аудитории : </label><input  required class="form-input" type="text" placeholder="num" v-model="num">
       </div>
     </div>
     <div :class="{submit: isChange}">
