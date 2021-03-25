@@ -11,6 +11,7 @@
         <button class="add-btn" v-if="completed" v-on:click="setNew">{{tittleBtn}}</button>
       </div>
         <Add v-if="active"
+             v-bind:tableRoom="main"
              v-bind:act="active"
              @addMerge="newMerge"
         />
@@ -77,9 +78,11 @@ export default {
       console.log(id)
     },
     deleteMe(id) {
-      this.mainRoom = this.mainRoom.filter(t=> t.id !==id)
+      this.mainRoom = this.mainRoom.filter(item=> item.id !==id)
+      this.Rooms = this.Rooms.filter(t=> t.id !==id)
     },
     setNew() {
+      this.main = []
       if (!this.active){
         this.tittleBtn = this.hide
         this.active =  true;
@@ -89,6 +92,7 @@ export default {
       }
     },
     newMerge(some) {
+      // this.mainRoom.push(some)
       this.Rooms.push(some)
       console.log(this.Rooms)
     }
