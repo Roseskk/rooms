@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <button v-on:click="setOpen" class="add-btn">Аудитории</button>
+      <Navigation
+        @setOpen ="setOpen"
+      />
+<!--      <button v-on:click="setOpen" class="add-btn">Аудитории</button>-->
       <div v-if="drag">
         <Cards
             v-bind:audiences="audiences"
@@ -25,6 +28,7 @@
 <script>
 import Cards from "@/components/Cards";
 import Add from "@/components/Add";
+import Navigation from "@/components/Navigation";
 
 export default {
   name: 'App',
@@ -55,6 +59,7 @@ export default {
   components: {
     Cards,
     Add,
+    Navigation,
   },
   methods: {
     newRoom(id){
@@ -101,11 +106,15 @@ export default {
       console.log(this.Rooms)
     },
     setOpen() {
+      console.log('123')
       if(!this.drag) {
+
         this.drag = true;
       }else if (this.drag) {
+
         this.drag = false
       }
+
     }
   }
 }
