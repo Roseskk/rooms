@@ -1,0 +1,5 @@
+{
+  "port": "5000",
+  "jwtSecter": "oleg mevn",
+  "mongoUri" : "mongodb+srv://oleg:RoseAmi12@cluster0.y66bn.mongodb.net/app?retryWrites=true&w=majority"
+}
