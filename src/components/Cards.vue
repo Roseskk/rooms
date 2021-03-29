@@ -20,7 +20,6 @@
     </div>
   </div>
     <Table  v-on:setDelete="deleteMe"
-            v-on:addNew="setNew"
             v-bind:class="{active: isActive}"
             v-bind:room="room"
     />
@@ -47,9 +46,6 @@ name: "Cards",
     deleteMe(id){
       this.$emit('deleteMe',id)
     },
-    setNew() {
-      this.$emit('setNew')
-    }
   }
 }
 </script>
@@ -63,7 +59,7 @@ name: "Cards",
   background: lightslategray;
 }
 .item {
-  min-width: 200px;
+  min-width: 150px;
   transition: all  0.5s ease-in-out;
 }
 .item:hover {
@@ -97,7 +93,7 @@ li {
   margin-left: 15px;
   padding: 30px;
   list-style: none;
-  background: gray;
+  background: #8a307f;
   border-radius: 12px;
 }
 h2 {
@@ -106,9 +102,12 @@ h2 {
   color: wheat;
 }
 button {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  color: white;
+  text-shadow: 0 1px 1px #2d2020;
   padding: 10px;
   border: none;
-  background: #ccc;
+  background: #79a7d3;
   border-radius: 7px;
 }
 
